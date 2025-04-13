@@ -1,0 +1,40 @@
+.project-list__header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+}
+
+.project-title{
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.arrow{
+  opacity: 0.5;
+  rotate: -90deg;
+  transition: rotate 0.3s ease;
+}
+
+.project-list__header.active .arrow{
+  opacity: 1;
+  rotate: 0deg;
+}
+
+.project-list__header.active .project-title{
+  color: rgba(255, 255, 255, 1);
+}
+
+.project-list__items {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.project-list__items.open {
+  max-height: 500px;
+  opacity: 1;
+}

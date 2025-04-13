@@ -1,0 +1,29 @@
+.projects{
+  background-color: #222327;
+  width: 320px;
+}
+
+.projects-container{
+  margin-top: 32px;
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.projects-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.projects-plus__img{
+  width: 28px;
+  height: 28px;
+}
+
+.projects-title{
+margin: 0;
+font-size: 30px;
+font-weight: 600;
+color: white;
+}

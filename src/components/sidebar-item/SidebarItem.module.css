@@ -1,0 +1,39 @@
+.item {
+  padding: 13px;
+  margin: 7px 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.item:last-child {
+  margin-top: 370px;
+}
+
+.item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hover-эффект */
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.1); /* Активный */
+  border-radius: 50%;
+}
+
+.item:active{
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0.5);
+}
+
+.item:hover .icon,
+.active .icon {
+  filter: brightness(1);
+}
