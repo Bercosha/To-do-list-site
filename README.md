@@ -1,3 +1,8 @@
+npm i react
+npm i react-dom-router
+npm i react-datepicker date-fns
+npm install @popperjs/core
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,65 @@
+.task-card{
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 320px;
+  background: #292B31;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.task-card__container{
+  padding: 20px;
+}
+
+.task-card__title{
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+}
+
+.task-card__description{
+  margin-top: 6px;
+}
+
+.task-card__header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.task-card__icon{
+  margin-top: 3px;
+}
+
+.progress-info{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress-info__container{
+  display: flex;
+}
+
+.task-card__progress-bar {
+  position: relative;
+  height: 3px;
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.task-card__progress {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 1px;
+}
+
+.task-card__date{
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}

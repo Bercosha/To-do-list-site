@@ -17,7 +17,7 @@ const ProjectList = ({title, items, defaultOpen = false}) => {
       className={`project-list__header ${isOpen ? 'active' : ""}`}
       onClick={toggleList}>
         <h3 className="project-title">{title}</h3>
-        <img className="arrow" src="../images/arrow-bottom.svg"/>
+        <img className="arrow" src="../images/arrow-bottom.svg" alt="arrow"/>
       </div>
         <div className={`project-list__items ${isOpen ? 'open' : 'closed'}`}>
         {items.map((item) => (

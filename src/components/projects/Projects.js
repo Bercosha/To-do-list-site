@@ -46,7 +46,7 @@ const Projects = () => {
       <div className="projects-container">
         <div className="projects-header">
           <h2 className="projects-title">Projects</h2>
-          <img className="projects-plus__img" src="../images/plus-icon.svg"/>
+          <img className="projects-plus__img" src="../images/plus-icon.svg" alt="plus icon"/>
         </div>
 
         <ProjectList title="Team" items={team}/>
@@ -54,6 +54,7 @@ const Projects = () => {
         <ProjectList title="Tasks" items={tasks} defaultOpen={true}/>
         <ProjectList title="Reminders" items={reminders}/>
         <ProjectList title="Messengers" items={messengers}/>
+        <div class="spacer"></div>
       </div>
     </div>
   )

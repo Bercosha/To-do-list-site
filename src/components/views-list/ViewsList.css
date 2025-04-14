@@ -1,0 +1,24 @@
+.views-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-btn {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  z-index: 100; /* Чтобы кнопка отображалась поверх */
+}
+
+.delete-btn:hover {
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 100;
+}

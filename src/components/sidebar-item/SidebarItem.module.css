@@ -7,10 +7,11 @@
   border-radius: 50%;
   transition: background-color 0.2s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .item:last-child {
-  margin-top: 370px;
+  bottom: 0px;
 }
 
 .item:hover {

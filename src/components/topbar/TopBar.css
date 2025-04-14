@@ -1,0 +1,30 @@
+.top-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 29px;
+}
+
+.top-bar__nav{
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.top-bar__title{
+  color: white;
+  font-weight: 600;
+}
+
+.profile-icon{
+  width: 36px;
+  height: 36px;
+}
+
+.top-bar__nav > .profile-icon {
+  margin-left: 0;  /* Убираем gap с последнего элемента */
+}
+
+.top-bar__nav > .calendar-display {
+  flex-shrink: 0; /* Убирает сжатие */
+}

@@ -27,3 +27,8 @@ font-size: 30px;
 font-weight: 600;
 color: white;
 }
+
+.spacer {
+  height: 30px;
+  flex-shrink: 0;
+}

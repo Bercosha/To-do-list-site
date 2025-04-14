@@ -1,0 +1,25 @@
+.views-item {
+  display: flex;
+  align-items: center;
+  padding: 0 14px 18px 14px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.views-item.active,
+.views-item:hover {
+  color: white;
+}
+
+.views-underline {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.views-item__img{
+  margin-right: 8px;
+}

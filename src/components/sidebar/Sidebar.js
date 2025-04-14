@@ -16,11 +16,20 @@ const items = [
 
 const Sidebar = () => {
   const [activeId, setActiveId] = useState('general');
+  const topItems = items.slice(0, -1);
+  const bottomItem = items[items.length-1];
 
   return (
-    <div style={{ width: "80px", background: "#1C1D22", display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div style={{ width: "80px", 
+    background: "#1C1D22", 
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "center", 
+    justifyContent: "space-between", 
+    padding: "20px 0" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <PageDots />
-      {items.map((item) => (
+      {topItems.map((item) => (
         <SidebarItem
           key={item.id}
           id={item.id}
@@ -29,6 +38,13 @@ const Sidebar = () => {
           onClick={setActiveId}
         />
       ))}
+      </div>
+      <SidebarItem
+        id={bottomItem.id}
+        icon={bottomItem.icon}
+        isActive={bottomItem.id === activeId}
+        onClick={setActiveId}
+      />
     </div>
 
   )
