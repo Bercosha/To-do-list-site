@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import ProjectItem from "../project-item/ProjectItem";
 import "./ProjectList.css";
 
-const ProjectList = ({title, items, defaultOpen = false}) => {
+const ProjectList = ({title, items, defaultOpen = false, activeId, setActiveId}) => {
 
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  const [activeId, setActiveId] = useState(null);
 
   const toggleList = () => {
     setIsOpen(!isOpen);
   }
-
   return (
     <div className="project-list">
       <div 
@@ -21,7 +19,12 @@ const ProjectList = ({title, items, defaultOpen = false}) => {
       </div>
         <div className={`project-list__items ${isOpen ? 'open' : 'closed'}`}>
         {items.map((item) => (
-          <ProjectItem key={item.id} id={item.id} name={item.name} isActive={item.id === activeId} onClick={setActiveId}/>
+          <ProjectItem 
+          key={item.id} 
+          id={item.id} 
+          name={item.name} 
+          isActive={item.id === activeId} 
+          onClick={() => setActiveId && setActiveId(item.id)}/>
         ))}
         </div>
     </div>

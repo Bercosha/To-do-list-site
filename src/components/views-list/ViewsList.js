@@ -53,7 +53,7 @@ const ViewsList = () => {
     resetUnderline();
     window.addEventListener('resize', resetUnderline);
     return () => window.removeEventListener('resize', resetUnderline);
-  })
+  }, [])
 
   // Delete button
   const handleRightClick = (e, id, isAddView) => {

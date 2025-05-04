@@ -1,8 +1,9 @@
+import { useState } from "react";
 import ProjectList from "../project-list/ProjectList";
 
 import "./Projects.css";
 
-const Projects = () => {
+const Projects = ( { onCategorySelect } ) => {
   const team = [
     { id: 1, name: "All Teams (3)" },
     { id: 2, name: "Design" },
@@ -12,7 +13,7 @@ const Projects = () => {
 
   const projects = [
     { id: 1, name: "All Projects (3)" },
-    { id: 2, name: "Design system" },
+    { id: 2, name: "Tasks" },
     { id: 3, name: "User flow" },
     { id: 4, name: "Ux research" },
   ];
@@ -39,7 +40,7 @@ const Projects = () => {
     { id: 4, name: "Messenger 3 (3)" },
   ]
 
-
+  const [activeTaskId, setActiveTaskId] = useState(tasks.length > 0 ? tasks[0].id : null);
 
   return (
     <div className="projects">
@@ -50,8 +51,23 @@ const Projects = () => {
         </div>
 
         <ProjectList title="Team" items={team}/>
-        <ProjectList title="Projects" items={projects} defaultOpen={true}/>
-        <ProjectList title="Tasks" items={tasks} defaultOpen={true}/>
+        <ProjectList title="Projects" items={projects}/>
+        <ProjectList
+          title="Tasks"
+          items={tasks}
+          defaultOpen={true}
+          activeId={activeTaskId}
+          setActiveId={(id) => {
+            setActiveTaskId(id);
+
+            const selectedItem = tasks.find(item => item.id === id);
+            const name = selectedItem?.name?.toLowerCase();
+            if (name.includes("to do")) onCategorySelect("to do");
+            else if (name.includes("in progress")) onCategorySelect("in progress");
+            else if (name.includes("done")) onCategorySelect("done");
+            else onCategorySelect("all");
+          }}
+        />
         <ProjectList title="Reminders" items={reminders}/>
         <ProjectList title="Messengers" items={messengers}/>
         <div class="spacer"></div>
