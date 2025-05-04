@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { DndContext, useSensor, useSensors, PointerSensor, rectIntersection } from "@dnd-kit/core";
+import { DndContext, useSensor, useSensors, PointerSensor, closestCorners } from "@dnd-kit/core";
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import DraggableTaskCard from "../draggableTaskCard/DraggableTaskCard";
 import DroppableColumn from "../droppableColumn/DroppableColumn";
@@ -14,6 +14,15 @@ const Content = ({ selectedCategory }) => {
 
   const [tasks, setTasks] = useState([]);
   const [activeId, setActiveId] = useState(null);
+  
+  const getColumnClass = (columnKey) => {
+    if (selectedCategory === "all") {
+      return "vertical";  
+    } else if (selectedCategory === columnKey) {
+      return "horizontal";  
+    }
+    return "vertical";  
+  };
 
   const handleDragEnd = useCallback((event) => {
     const { active, over } = event;
@@ -149,10 +158,10 @@ const Content = ({ selectedCategory }) => {
   }
 
   return (
-    <div className="content">
+    <div className={`content`}>
       <DndContext
         sensors={sensors}
-        collisionDetection={rectIntersection}
+        collisionDetection={closestCorners}
         onDragStart={(event) => {
           setActiveId(event.active.id);
           document.body.style.cursor = 'grabbing';
@@ -166,8 +175,13 @@ const Content = ({ selectedCategory }) => {
       >
         {visibleColumns.map(column => {
           const columnTasks = columnTasksMap[column.key];
+          const columnClass = getColumnClass(column.key);
           return (
-            <DroppableColumn key={column.key} id={column.key} items={columnTasks.map(task => task.id)}>
+            <DroppableColumn 
+            key={column.key} 
+            id={column.key} 
+            items={columnTasks.map(task => task.id)}
+            columnClass={columnClass}>
               <div className="column-title__container">
                 <h3 className="column-title">{column.title}</h3>
                 <div className="column-title__add-task" onClick={() => handleAddTask(column.key)}>
@@ -177,7 +191,18 @@ const Content = ({ selectedCategory }) => {
               </div>
               <SortableContext items={columnTasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
                 {columnTasks.map(task => (
-                  <DraggableTaskCard key={task.id} task={task} />
+                  <DraggableTaskCard 
+                  key={task.id} 
+                  task={task} 
+                  onRename={(id, newTitle) => {
+                    console.log("Renaming task with id:", id, "to new title:", newTitle);
+                    setTasks(prev => prev.map(task => task.id === id ? { ...task, title: newTitle} : task));
+                  }}
+                  
+                  onDelete={(id) => {
+                    console.log("Deleting task with id:", id);
+                    setTasks(prev => prev.filter(task => task.id !== id));
+                  }}/>
                 ))}
               </SortableContext>
             </DroppableColumn>

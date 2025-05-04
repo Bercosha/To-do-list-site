@@ -3,7 +3,7 @@ import React from "react";
 import { CSS } from "@dnd-kit/utilities";
 import TaskCard from "../task-card/TaskCard";
 
-const DraggableTaskCard = React.memo(({ task }) => {
+const DraggableTaskCard = React.memo(({ task, onRename, onDelete }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: task.id
   });
@@ -31,7 +31,7 @@ const DraggableTaskCard = React.memo(({ task }) => {
     {...listeners} 
     onDragStart={handleDragStart}
     onDragEnd={handleDragEnd}>
-      <TaskCard {...task} />
+      <TaskCard {...task} onRename={onRename} onDelete={onDelete}/>
     </div>
   );
 });

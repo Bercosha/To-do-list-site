@@ -27,8 +27,59 @@
   margin-bottom: 22px;
 }
 
+.task-card__rename-input {
+  background-color: #1f2125;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.task-card__icon:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.task-card__icon:active{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .task-card__icon{
   margin-top: 3px;
+}
+
+.task-card__icon-container{
+  position: relative;
+}
+
+.details-container{
+  position: absolute;
+  top: 10px;
+  right: -100px;
+  background-color: #292B31;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.details-item{
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.details-delete__icon{
+  opacity: 0.2;
+  width: 20px;
+  height: 20px;
+}
+
+.details-rename__icon{
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
 }
 
 .progress-info{

@@ -1,100 +1,76 @@
 {
   "tasks": [
     {
-      "id": 1746362994548,
-      "title": "Fix bug",
-      "description": "Just do it",
-      "progress": 3,
-      "status": "to do",
-      "date": "2025-05-04T12:49:54.548Z"
-    },
-    {
-      "id": 1746362995693,
-      "title": "Refactor code",
-      "description": "Just do it",
-      "progress": 0,
-      "status": "in progress",
-      "date": "2025-05-04T12:49:55.693Z"
-    },
-    {
-      "id": 1746362996422,
-      "title": "Do magic",
-      "description": "Optional",
-      "progress": 4,
-      "status": "done",
-      "date": "2025-05-04T12:49:56.422Z"
-    },
-    {
-      "id": 1746362996863,
-      "title": "Fix bug",
-      "description": "For test",
-      "progress": 2,
-      "status": "done",
-      "date": "2025-05-04T12:49:56.863Z"
-    },
-    {
-      "id": 1746362997223,
-      "title": "Write docs",
-      "description": "For test",
-      "progress": 6,
-      "status": "done",
-      "date": "2025-05-04T12:49:57.223Z"
-    },
-    {
-      "id": 1746362997883,
+      "id": 1746384877276,
       "title": "Learn React",
-      "description": "No description",
-      "progress": 9,
-      "status": "in progress",
-      "date": "2025-05-04T12:49:57.883Z"
+      "description": "Just do it",
+      "progress": 6,
+      "status": "to do",
+      "date": "2025-05-04T18:54:37.276Z"
     },
     {
-      "id": 1746362998062,
-      "title": "Refactor code",
+      "id": 1746384877902,
+      "title": "Do magic",
       "description": "Auto-generated task",
-      "progress": 3,
+      "progress": 6,
       "status": "in progress",
-      "date": "2025-05-04T12:49:58.062Z"
+      "date": "2025-05-04T18:54:37.902Z"
     },
     {
-      "id": 1746362998800,
+      "id": 1746384878612,
+      "title": "Fix bug",
+      "description": "No description",
+      "progress": 2,
+      "status": "done",
+      "date": "2025-05-04T18:54:38.612Z"
+    },
+    {
+      "id": 1746384895447,
       "title": "Write docs",
       "description": "Just do it",
       "progress": 2,
       "status": "to do",
-      "date": "2025-05-04T12:49:58.800Z"
+      "date": "2025-05-04T18:54:55.447Z"
     },
     {
-      "id": 1746362998983,
-      "title": "Refactor code",
+      "id": 1746384896113,
+      "title": "Do magic",
       "description": "For test",
-      "progress": 6,
-      "status": "to do",
-      "date": "2025-05-04T12:49:58.983Z"
+      "progress": 3,
+      "status": "in progress",
+      "date": "2025-05-04T18:54:56.113Z"
     },
     {
-      "id": 1746363002913,
-      "title": "Fix bug",
+      "id": 1746384896481,
+      "title": "Do magic",
       "description": "Auto-generated task",
-      "progress": 1,
-      "status": "to do",
-      "date": "2025-05-04T12:50:02.913Z"
+      "progress": 6,
+      "status": "done",
+      "date": "2025-05-04T18:54:56.481Z"
     },
     {
-      "id": 1746363003582,
-      "title": "Fix bug",
+      "id": 1746384897023,
+      "title": "Do magic",
       "description": "For test",
       "progress": 10,
-      "status": "in progress",
-      "date": "2025-05-04T12:50:03.582Z"
+      "status": "to do",
+      "date": "2025-05-04T18:54:57.023Z"
     },
     {
-      "id": 1746363004193,
+      "id": 1746384900950,
+      "title": "Fix bug",
+      "description": "For test",
+      "progress": 1,
+      "status": "in progress",
+      "date": "2025-05-04T18:55:00.950Z"
+    },
+    {
+      "id": 1746384901649,
       "title": "Refactor code",
-      "description": "No description",
-      "progress": 9,
+      "description": "Optional",
+      "progress": 0,
       "status": "done",
-      "date": "2025-05-04T12:50:04.193Z"
+      "date": "2025-05-04T18:55:01.649Z"
     }
   ]
 }
