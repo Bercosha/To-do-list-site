@@ -58,6 +58,8 @@ input::-webkit-inner-spin-button {
   min-height: 100vh;
   display: flex;
   font-family: "Exo 2", sans-serif;
+  margin-left: 80px;
+  overflow: hidden;
 }
 
 

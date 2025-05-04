@@ -18,7 +18,7 @@ const App = () => {
     <Router>
       <div className="app">
         <Sidebar/>
-        <Projects onCategorySelect={setSelectedTaskCategory}/>
+        <Projects onCategorySelect={setSelectedTaskCategory} />
         <main className="main">
           <div className="main-container">
             <TopBar/>

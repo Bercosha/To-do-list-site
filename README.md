@@ -2,6 +2,8 @@ npm i react
 npm i react-dom-router
 npm i react-datepicker date-fns
 npm install @popperjs/core
+npm install @dnd-kit/core @dnd-kit/sortable
+
 
 # Getting Started with Create React App
 

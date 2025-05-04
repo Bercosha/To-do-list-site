@@ -1,6 +1,6 @@
 import './TaskCard.css';
 
-const TaskCard = ({id, title, description, progress}) => {
+const TaskCard = ({id, title, description, progress, date}) => {
   const getProgressColor = (value) => {
     if (value >= 1 && value <= 4) return '#FF7979'; // Красный
     if (value >= 5 && value <= 7) return '#FFA048'; // Оранжевый
@@ -8,6 +8,11 @@ const TaskCard = ({id, title, description, progress}) => {
     if (value === 10) return '#78D700'; // Зелёный
     return 'transparent'; // 0 или некорректное значение
   };
+
+  const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+    day: '2-digit', month: 'short', year: 'numeric'
+  })
+
   return (
     <div className="task-card">
       <div className='task-card__container'>
@@ -28,7 +33,7 @@ const TaskCard = ({id, title, description, progress}) => {
         <div className="task-card__progress-bar">
           <div className="task-card__progress" style={{width: `${(progress * 10)}%`, backgroundColor: getProgressColor(progress),}}></div>
         </div>
-        <p className="task-card__date">14 Apr 2025</p>
+        <p className="task-card__date">{formattedDate}</p>
       </div>
     </div>
   )

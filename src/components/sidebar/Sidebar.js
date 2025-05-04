@@ -22,18 +22,25 @@ const Sidebar = () => {
   return (
     <div style={{ width: "80px", 
     background: "#1C1D22", 
-    display: "flex", 
+    display: "flex",
     flexDirection: "column", 
     alignItems: "center", 
     justifyContent: "space-between", 
-    padding: "20px 0" }}>
+    padding: "20px 0",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    height: "100vh",
+    zIndex: 100, 
+    }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <PageDots />
-      {topItems.map((item) => (
+      {topItems.map((item, index) => (
         <SidebarItem
           key={item.id}
           id={item.id}
           icon={item.icon}
+          isLogo={index === 0}
           isActive={item.id === activeId}
           onClick={setActiveId}
         />
