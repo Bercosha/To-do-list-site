@@ -3,7 +3,10 @@ import ProjectList from "../project-list/ProjectList";
 
 import "./Projects.css";
 
-const Projects = ( { onCategorySelect } ) => {
+const Projects = ( { tasks, onCategorySelect } ) => {
+  const countByStatus = (status) => tasks.filter(task => task.status === status).length;
+  const totalCount = tasks.length;
+
   const team = [
     { id: 1, name: "All Teams (3)" },
     { id: 2, name: "Design" },
@@ -19,11 +22,11 @@ const Projects = ( { onCategorySelect } ) => {
   ];
 
 
-  const tasks = [
-    { id: 1, name: "All Tasks (3)" },
-    { id: 2, name: "To do (4)" },
-    { id: 3, name: "In progress (4)" },
-    { id: 4, name: "Done (3)" },
+  const taskList = [
+    { id: 0, name: `All Tasks (${totalCount})`, status: "all" },
+    { id: 1, name: `To do (${countByStatus("to do")})`, status: "to do" },
+    { id: 2, name: `In progress (${countByStatus("in progress")})`, status: "in progress" },
+    { id: 3, name: `Done (${countByStatus("done")})`, status: "done" },
   ];
 
   const reminders = [
@@ -54,18 +57,15 @@ const Projects = ( { onCategorySelect } ) => {
         <ProjectList title="Projects" items={projects}/>
         <ProjectList
           title="Tasks"
-          items={tasks}
+          items={taskList}
           defaultOpen={true}
           activeId={activeTaskId}
           setActiveId={(id) => {
             setActiveTaskId(id);
-
-            const selectedItem = tasks.find(item => item.id === id);
-            const name = selectedItem?.name?.toLowerCase();
-            if (name.includes("to do")) onCategorySelect("to do");
-            else if (name.includes("in progress")) onCategorySelect("in progress");
-            else if (name.includes("done")) onCategorySelect("done");
-            else onCategorySelect("all");
+            const selectedItem = taskList.find(item => item.id === id);
+            if (selectedItem) {
+              onCategorySelect(selectedItem.status);
+            }
           }}
         />
         <ProjectList title="Reminders" items={reminders}/>

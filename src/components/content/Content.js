@@ -1,18 +1,18 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { DndContext, useSensor, useSensors, PointerSensor, closestCorners } from "@dnd-kit/core";
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import DraggableTaskCard from "../draggableTaskCard/DraggableTaskCard";
 import DroppableColumn from "../droppableColumn/DroppableColumn";
 import "./Content.css";
 
-const Content = ({ selectedCategory }) => {
-  const columns = [
-    { title: "To do", key: "to do" },
-    { title: "In progress", key: "in progress" },
-    { title: "Done", key: "done" }
-  ];
+const columns = [
+  { title: "To do", key: "to do" },
+  { title: "In progress", key: "in progress" },
+  { title: "Done", key: "done" }
+];
+const Content = ({ selectedCategory, tasks, setTasks }) => {
+  
 
-  const [tasks, setTasks] = useState([]);
   const [activeId, setActiveId] = useState(null);
   
   const getColumnClass = (columnKey) => {
@@ -62,7 +62,7 @@ const Content = ({ selectedCategory }) => {
         console.error("Error updating task status:", err);
       })
     }
-  }, [tasks]);
+  }, [tasks, setTasks]);
 
   const handleDragOver = useCallback((event) => {
     const { active, over } = event;
@@ -80,7 +80,7 @@ const Content = ({ selectedCategory }) => {
       const newTasks = tasks.map(task => task.id === updatedTask.id ? updatedTask : task);
       setTasks(newTasks);
     }
-  }, [tasks]);
+  }, [tasks, setTasks]);
 
   const columnTasksMap = useMemo(() => {
     return columns.reduce((acc, col) => {
@@ -100,7 +100,7 @@ const Content = ({ selectedCategory }) => {
       }
       return acc;
     }, {});
-  }, [tasks]); */
+  }, [tasks, columns]); */
 
   
 
@@ -111,19 +111,6 @@ const Content = ({ selectedCategory }) => {
       }
     })
   )
-
-  // Беру данные из db.json
-  useEffect(() => {
-    fetch("http://localhost:3002/tasks")
-      .then(res => res.json())
-      .then(data => {
-        const updated = data.map(task => 
-          task.progress >= 10 && task.status !== 'done' ? { ...task, status: 'done' } : task
-        );
-        setTasks(updated);
-      })
-      .catch(err => console.log(err))
-  }, [])
 
   const visibleColumns = selectedCategory === "all"
     ? columns
@@ -194,6 +181,7 @@ const Content = ({ selectedCategory }) => {
                   <DraggableTaskCard 
                   key={task.id} 
                   task={task} 
+                  isActive={activeId === task.id}
                   onRename={(id, newTitle) => {
                     console.log("Renaming task with id:", id, "to new title:", newTitle);
                     setTasks(prev => prev.map(task => task.id === id ? { ...task, title: newTitle} : task));
